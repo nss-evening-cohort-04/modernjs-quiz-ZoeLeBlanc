@@ -3,10 +3,89 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
+	<title>Modern JS Robot Quiz</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	
+<div id="gameContainer">
+<!-- Input Section -->
+	<div id="inputSection" class="row">
+		<div class="col-sm-4">
+		 	<input type="text" id="name1" value="" placeholder="">
+			<select id="select1">
+				<option value="MilleniumFalcon">Millenium Falcon</option>
+				<option value="AirForceOne">Air Force One</option>
+				<option value="C3PO">C3P0</option>
+				<option value="ATAT">ATAT</option>
+				<option value="Tank">Tank</option>
+				<option value="BB8">BB8</option>
+			</select>
+		</div>
+		<div class="col-sm-4">
+			<input type="text" id="name2" value="" placeholder="">
+			<select id="select2">
+				<option value="MilleniumFalcon">Millenium Falcon</option>
+				<option value="AirForceOne">Air Force One</option>
+				<option value="C3PO">C3P0</option>
+				<option value="ATAT">ATAT</option>
+				<option value="Tank">Tank</option>
+				<option value="BB8">BB8</option>
+			</select>
+		</div>
+		<div class="col-sm-4">
+			<div class="card__button">
+              <a class="card__link btn btn--big btn--blue"
+                 href="#">
+                <span class="btn__text" id="StartGame">Start Game</span>
+              </a>
+            </div>
+		</div>
+	</div>
+	<div id="AttackArea" class="row">
+		<div class="col-sm-4">
+			<div class="card__button">
+              <a class="card__link btn btn--big btn--yellow"
+                 href="#">
+                <span class="btn__text" id="AttackEnemy">Attack Enemy</span>
+              </a>
+            </div>
+		</div>
+		<div class="col-sm-4" id="robotStats">
+			
+		</div>
+		<div class="col-sm-4" id="battleStats">
+			
+		</div>
+	</div>	
+	<!--  Final Modal-->
+      <div class="modal fade" id="robotModal" tabindex="-1" role="dialog" aria-labelledby="robotModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="robotLabel">Game Over!</h4>
+            </div>
+            <div class="modal-body" id="robotMessage">
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="document.location.reload(true);">Play Again</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      
+</div>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="javascripts/robot.js"></script>
+	<script src="javascripts/DOMHandler.js"></script>
 </body>
 </html>
