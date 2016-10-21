@@ -1,20 +1,21 @@
-var Robot = ( (newRobot) =>{
+"use strict";
+var Robot = (function(NewRobot){
 	
-	newRobot.Machines = {};
+	NewRobot.Machines = {};
 
-	newRobot.Machines.OriginalRobot = function(){
+	NewRobot.Machines.OriginalRobot = function(){
 		this.health = null;
 		this.damage = null;
 		this.playerName = null;
 	};
-	newRobot.Machines.OriginalRobot.prototype.generateHealth = function(){
+	NewRobot.Machines.OriginalRobot.prototype.generateHealth = function(){
   		let min = this.allowedHealthRange[0];
   		let max = this.allowedHealthRange[1];
   		let random = Math.random() * (max - min) + min;
   		this.health = random.toFixed(0);
   		return this.health;
 	};	
-	newRobot.Machines.OriginalRobot.prototype.generateDamage = function(){
+	NewRobot.Machines.OriginalRobot.prototype.generateDamage = function(){
   		let min = this.allowedDamageRange[0];
   		let max = this.allowedDamageRange[1];
   		let random = Math.random() * (max - min) + min;
@@ -22,59 +23,59 @@ var Robot = ( (newRobot) =>{
   		return this.damage;
 	};	
 	//Robot Types
-	newRobot.Machines.Drone = function(){
+	NewRobot.Machines.Drone = function(){
 		this.type = "Drone";
 		this.property = "aerial";
 	};
-	newRobot.Machines.Drone.prototype = new newRobot.Machines.OriginalRobot();
-	newRobot.Machines.Bipedal = function(){
+	NewRobot.Machines.Drone.prototype = new NewRobot.Machines.OriginalRobot();
+	NewRobot.Machines.Bipedal = function(){
 		this.type = "Bipedal";
 		this.property = "ground";
 	};
-	newRobot.Machines.Bipedal.prototype = new newRobot.Machines.OriginalRobot();
-	newRobot.Machines.ATV = function(){
+	NewRobot.Machines.Bipedal.prototype = new NewRobot.Machines.OriginalRobot();
+	NewRobot.Machines.ATV = function(){
 		this.type = "ATV";
 		this.property = "wheels";
 	};
-	newRobot.Machines.ATV.prototype = new newRobot.Machines.OriginalRobot();
+	NewRobot.Machines.ATV.prototype = new NewRobot.Machines.OriginalRobot();
 	//Robot Models
-	newRobot.Machines.MilleniumFalcon = function(){
+	NewRobot.Machines.MilleniumFalcon = function(){
 		this.name = "Millenium Falcon";
 		this.allowedHealthRange = [50, 80];
 		this.allowedDamageRange = [10, 20];
 	};
-	newRobot.Machines.MilleniumFalcon.prototype = new newRobot.Machines.Drone();
-	newRobot.Machines.AirForceOne = function(){
+	NewRobot.Machines.MilleniumFalcon.prototype = new NewRobot.Machines.Drone();
+	NewRobot.Machines.AirForceOne = function(){
 		this.name = "Air Force One";
 		this.allowedHealthRange = [40, 100];
 		this.allowedDamageRange = [10, 15];
 	};
-	newRobot.Machines.AirForceOne.prototype = new newRobot.Machines.Drone();
-	newRobot.Machines.C3PO = function(){
+	NewRobot.Machines.AirForceOne.prototype = new NewRobot.Machines.Drone();
+	NewRobot.Machines.C3PO = function(){
 		this.name = "C3PO";
 		this.allowedHealthRange = [50, 100];
 		this.allowedDamageRange = [5, 10];
 	};
-	newRobot.Machines.C3PO.prototype = new newRobot.Machines.Bipedal();
-	newRobot.Machines.ATAT = function(){
+	NewRobot.Machines.C3PO.prototype = new NewRobot.Machines.Bipedal();
+	NewRobot.Machines.ATAT = function(){
 		this.name = "ATAT";
 		this.allowedHealthRange = [90, 150];
 		this.allowedDamageRange = [5, 25];
 	};
-	newRobot.Machines.ATAT.prototype = new newRobot.Machines.Bipedal();
-	newRobot.Machines.Tank = function(){
+	NewRobot.Machines.ATAT.prototype = new NewRobot.Machines.Bipedal();
+	NewRobot.Machines.Tank = function(){
 		this.name = "Tank";
 		this.allowedHealthRange = [60, 120];
 		this.allowedDamageRange = [5, 20];
 
 	};
-	newRobot.Machines.Tank.prototype = new newRobot.Machines.ATV();
-	newRobot.Machines.BB8 = function(){
+	NewRobot.Machines.Tank.prototype = new NewRobot.Machines.ATV();
+	NewRobot.Machines.BB8 = function(){
 		this.name = "BB8";
 		this.allowedHealthRange = [10, 120];
 		this.allowedDamageRange = [15, 30];
 	};
-	newRobot.Machines.BB8.prototype = new newRobot.Machines.ATV();
+	NewRobot.Machines.BB8.prototype = new NewRobot.Machines.ATV();
 
- return newRobot; 
+ return NewRobot; 
 })(Robot || {});

@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function() {
 	//Get Input Text Name
 	let robot1Name = "";
@@ -39,20 +40,23 @@ $(document).ready(function() {
 	//Event Listener on Start Button
 	$("#StartGame").click(() => {
 		$("#robotStats").html("");
-		robot1 = new Robot.Machines[robot1Model];
+		robot1 = new Robot.Machines[robot1Model]();
 		console.log("robot1", robot1);
 		robot1.playerName = robot1Name;
 		console.log("robot1.playerName", robot1.playerName);
 		robot1.generateHealth();
 		robot1.generateDamage();
 		$("#robotStats").append(`<div>${robot1.playerName} has an initial health of ${robot1.health} and a damage of ${robot1.damage}</div>`);
-		robot2 = new Robot.Machines[robot2Model];
+		robot2 = new Robot.Machines[robot2Model]();
 		robot2.playerName = robot2Name;
 		robot2.generateHealth();
 		robot2.generateDamage();
 		$("#robotStats").append(`<div>${robot2.playerName} has an initial health of ${robot2.health} and a damage of ${robot2.damage}</div>`);
 		$("#robotStats").css("border", "0.5em solid lightgrey");
 		$("#robotStats").css("height", "6em");
+		console.log("robot1", robot1);
+		console.log("robot2", robot2);
+
 	});
 	//Run Attack Function
 	$("#AttackEnemy").click(() => {
