@@ -7,6 +7,7 @@ var Robot = (function(NewRobot){
 		this.health = null;
 		this.damage = null;
 		this.playerName = null;
+		this.weapon = null;
 	};
 	NewRobot.Machines.OriginalRobot.prototype.generateHealth = function(){
   		let min = this.allowedHealthRange[0];
@@ -21,21 +22,30 @@ var Robot = (function(NewRobot){
   		let random = Math.random() * (max - min) + min;
   		this.damage = random.toFixed(0);
   		return this.damage;
+	};
+	NewRobot.Machines.OriginalRobot.prototype.generateWeapon = function(){
+		let random = Math.round(Math.random() * (this.allowedWeapons.length - 1));
+		let randomWeapon = this.allowedWeapons[random];
+		this.weapon = randomWeapon;
+		return this.weapon;
 	};	
 	//Robot Types
 	NewRobot.Machines.Drone = function(){
 		this.type = "Drone";
 		this.property = "aerial";
+		this.allowedWeapons = ["aerial bombardment", "rocket"];
 	};
 	NewRobot.Machines.Drone.prototype = new NewRobot.Machines.OriginalRobot();
 	NewRobot.Machines.Bipedal = function(){
 		this.type = "Bipedal";
 		this.property = "ground";
+		this.allowedWeapons = ["fist crush", "electric shock"];
 	};
 	NewRobot.Machines.Bipedal.prototype = new NewRobot.Machines.OriginalRobot();
 	NewRobot.Machines.ATV = function(){
 		this.type = "ATV";
 		this.property = "wheels";
+		this.allowedWeapons = ["run down", "sit on"];
 	};
 	NewRobot.Machines.ATV.prototype = new NewRobot.Machines.OriginalRobot();
 	//Robot Models
